@@ -13,7 +13,7 @@ iniSection::~iniSection()
 	_map.clear();
 }
 
-void iniSection::insert(std::string key, double d)
+void iniSection::insert(const std::string& key, double d)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -25,7 +25,7 @@ void iniSection::insert(std::string key, double d)
 	_map[key] = ip;
 }
 
-void iniSection::insert(std::string key, const char* s)
+void iniSection::insert(const std::string& key, const char* s)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -37,7 +37,7 @@ void iniSection::insert(std::string key, const char* s)
 	_map[key] = ip;
 }
 
-void iniSection::insert(std::string key, bool b)
+void iniSection::insert(const std::string& key, bool b)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -49,7 +49,7 @@ void iniSection::insert(std::string key, bool b)
 	_map[key] = ip;
 }
 
-void iniSection::setValue(std::string key, double d)
+void iniSection::setValue(const std::string& key, double d)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -57,7 +57,7 @@ void iniSection::setValue(std::string key, double d)
 	}
 }
 
-void iniSection::setValue(std::string key, const char* s)
+void iniSection::setValue(const std::string& key, const char* s)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -65,7 +65,7 @@ void iniSection::setValue(std::string key, const char* s)
 	}
 }
 
-void iniSection::setValue(std::string key, bool b)
+void iniSection::setValue(const std::string& key, bool b)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -73,7 +73,7 @@ void iniSection::setValue(std::string key, bool b)
 	}
 }
 
-void iniSection::erase(std::string key)
+void iniSection::erase(const std::string& key)
 {
 	auto it = _map.find(key);
 	if (it != _map.end())
@@ -82,7 +82,7 @@ void iniSection::erase(std::string key)
 	}
 }
 
-double iniSection::getNumber(std::string key, double def)
+double iniSection::getNumber(const std::string& key, double def)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -94,7 +94,7 @@ double iniSection::getNumber(std::string key, double def)
 	}
 }
 
-const char* iniSection::getString(std::string key, const char* def)
+const char* iniSection::getString(const std::string& key, const char* def)
 {
 	if (_map.find(key) != _map.end())
 	{
@@ -106,7 +106,7 @@ const char* iniSection::getString(std::string key, const char* def)
 	}
 }
 
-bool iniSection::getBoolean(std::string key, bool def)
+bool iniSection::getBoolean(const std::string& key, bool def)
 {
 	if (_map.find(key) != _map.end())
 	{

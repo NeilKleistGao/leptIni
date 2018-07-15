@@ -3,7 +3,7 @@
 
 using namespace leptIni;
 
-iniFile::iniFile(std::string filename)
+iniFile::iniFile(const std::string& filename)
 {
 	_stream.open(filename, std::fstream::in | std::fstream::out);
 	_name = filename;
@@ -20,7 +20,7 @@ iniFile::~iniFile()
 	}
 }
 
-void iniFile::insertSection(std::string name)
+void iniFile::insertSection(const std::string& name)
 {
 	if (_map.find(name) == _map.end())
 	{
@@ -28,7 +28,7 @@ void iniFile::insertSection(std::string name)
 	}
 }
 
-void iniFile::eraseSection(std::string name)
+void iniFile::eraseSection(const std::string& name)
 {
 	auto it = _map.find(name);
 	if (it != _map.end())
@@ -37,7 +37,7 @@ void iniFile::eraseSection(std::string name)
 	}
 }
 
-void iniFile::insertProperty(std::string name, std::string key, double d)
+void iniFile::insertProperty(const std::string& name, const std::string& key, double d)
 {
 	if (_map.find(name) != _map.end())
 	{
@@ -45,7 +45,7 @@ void iniFile::insertProperty(std::string name, std::string key, double d)
 	}
 }
 
-void iniFile::insertProperty(std::string name, std::string key, const char* s)
+void iniFile::insertProperty(const std::string& name, const std::string& key, const char* s)
 {
 	if (_map.find(name) != _map.end())
 	{
@@ -53,7 +53,7 @@ void iniFile::insertProperty(std::string name, std::string key, const char* s)
 	}
 }
 
-void iniFile::insertProperty(std::string name, std::string key, bool b)
+void iniFile::insertProperty(const std::string& name, const std::string& key, bool b)
 {
 	if (_map.find(name) != _map.end())
 	{
@@ -61,7 +61,7 @@ void iniFile::insertProperty(std::string name, std::string key, bool b)
 	}
 }
 
-void iniFile::setProperty(std::string name, std::string key, double d)
+void iniFile::setProperty(const std::string& name, const std::string& key, double d)
 {
 	if (_map.find(name) != _map.end())
 	{
@@ -69,7 +69,7 @@ void iniFile::setProperty(std::string name, std::string key, double d)
 	}
 }
 
-void iniFile::setProperty(std::string name, std::string key, const char* s)
+void iniFile::setProperty(const std::string& name, const std::string& key, const char* s)
 {
 	if (_map.find(name) != _map.end())
 	{
@@ -77,7 +77,7 @@ void iniFile::setProperty(std::string name, std::string key, const char* s)
 	}
 }
 
-void iniFile::setProperty(std::string name, std::string key, bool b)
+void iniFile::setProperty(const std::string& name, const std::string& key, bool b)
 {
 	if (_map.find(name) != _map.end())
 	{
@@ -85,31 +85,37 @@ void iniFile::setProperty(std::string name, std::string key, bool b)
 	}
 }
 
-double iniFile::getNumberProperty(std::string name, std::string key, double def)
+double iniFile::getNumberProperty(const std::string& name, const std::string& key, double def)
 {
 	if (_map.find(name) != _map.end())
 	{
 		return _map[name].getNumber(key, def);
 	}
+
+	return def;
 }
 
-const char* iniFile::getStringProperty(std::string name, std::string key, const char* def)
+const char* iniFile::getStringProperty(const std::string& name, const std::string& key, const char* def)
 {
 	if (_map.find(name) != _map.end())
 	{
 		return _map[name].getString(key, def);
 	}
+
+	return def;
 }
 
-bool iniFile::getBooleanProperty(std::string name, std::string key, bool def)
+bool iniFile::getBooleanProperty(const std::string& name, const std::string& key, bool def)
 {
 	if (_map.find(name) != _map.end())
 	{
 		return _map[name].getBoolean(key, def);
 	}
+
+	return def;
 }
 
-void iniFile::eraseProperty(std::string name, std::string key)
+void iniFile::eraseProperty(const std::string& name, const std::string& key)
 {
 	if (_map.find(name) != _map.end())
 	{

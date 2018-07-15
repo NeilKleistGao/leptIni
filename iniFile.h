@@ -10,25 +10,25 @@ namespace leptIni
 	class iniFile
 	{
 	public:
-		iniFile(std::string filename);
+		iniFile(const std::string& filename);
 		~iniFile();
 
-		void insertSection(std::string name);
-		void eraseSection(std::string name);
+		void insertSection(const std::string& name);
+		void eraseSection(const std::string& name);
 
-		void insertProperty(std::string name ,std::string key, double d);
-		void insertProperty(std::string name, std::string key, const char* s);
-		void insertProperty(std::string name, std::string key, bool b);
+		void insertProperty(const std::string& name ,const std::string& key, double d);
+		void insertProperty(const std::string& name, const std::string& key, const char* s);
+		void insertProperty(const std::string& name, const std::string& key, bool b);
 
-		void setProperty(std::string name, std::string key, double d);
-		void setProperty(std::string name, std::string key, const char* s);
-		void setProperty(std::string name, std::string key, bool b);
+		void setProperty(const std::string& name, const std::string& key, double d);
+		void setProperty(const std::string& name, const std::string& key, const char* s);
+		void setProperty(const std::string& name, const std::string& key, bool b);
 
-		double getNumberProperty(std::string name, std::string key, double def = 0.0);
-		const char* getStringProperty(std::string name, std::string key, const char* def = "");
-		bool getBooleanProperty(std::string name, std::string key, bool def = false);
+		double getNumberProperty(const std::string& name, const std::string& key, double def = 0.0);
+		const char* getStringProperty(const std::string& name, const std::string& key, const char* def = "");
+		bool getBooleanProperty(const std::string& name, const std::string& key, bool def = false);
 
-		void eraseProperty(std::string name ,std::string key);
+		void eraseProperty(const std::string& name ,const std::string& key);
 
 		void save();
 
