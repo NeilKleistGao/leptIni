@@ -5,7 +5,6 @@ using namespace leptIni;
 
 iniSection::iniSection()
 {
-
 }
 
 iniSection::~iniSection()

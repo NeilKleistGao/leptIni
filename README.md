@@ -28,7 +28,7 @@ file.insertProperty("section3", "e", "EE Sama No Mercy");
 对于所有的基本操作，都可以使用以下的函数完成。你不必阅读其他文件：<br/>
 You can finish most of the basic operation using these functions below. Reading other files is not needed:
 ```c++
-void insertSection(std::string name);
+void insertSection(const std::string& name);
 /*
 插入一个节，这个节没有任何属性。如果有同名的节存在，则不做任何操作
 Insert a new section to the file, which doesn't have any property. If there is already a section having the same name, no action will be done.
@@ -37,7 +37,7 @@ name:节的名称
 name: the name of section
 */
 
-void eraseSection(std::string name);
+void eraseSection(const std::string& name);
 /*
 删除一个节，以及其下的所有属性。如果不存在该名字的节，则不做任何操作
 Delete a section and the properties in the section. If there is no section having this name, no action will be done.
@@ -46,9 +46,9 @@ name:节的名称
 name: the name of section
 */
 
-void insertProperty(std::string name ,std::string key, double d);
-void insertProperty(std::string name, std::string key, const char* s);
-void insertProperty(std::string name, std::string key, bool b);
+void insertProperty(const std::string& name ,const std::string& key, double d);
+void insertProperty(const std::string& name, const std::string& key, const char* s);
+void insertProperty(const std::string& name, const std::string& key, bool b);
 
 /*
 插入一个属性。属性所属的节必须已经存在。
@@ -58,9 +58,9 @@ name:节的名称   key：属性的键   d/s/b：属性的值
 name: the name of section   key: the key of property    d/s/b: the value of property
 */
 
-void setProperty(std::string name, std::string key, double d);
-void setProperty(std::string name, std::string key, const char* s);
-void setProperty(std::string name, std::string key, bool b);
+void setProperty(const std::string& name, const std::string& key, double d);
+void setProperty(const std::string& name, const std::string& key, const char* s);
+void setProperty(const std::string& name, const std::string& key, bool b);
 /*
 修改一个属性。属性所属的节和属性必须已经存在。
 Modify a property. The goal section and property must exist.
@@ -69,9 +69,9 @@ name:节的名称   key：属性的键   d/s/b：属性的值
 name: the name of section   key: the key of property    d/s/b: the value of property
 */
 
-double getNumberProperty(std::string name, std::string key, double def = 0.0);
-const char* getStringProperty(std::string name, std::string key, const char* def = "");
-bool getBooleanProperty(std::string name, std::string key, bool def = false);
+double getNumberProperty(const std::string& name, const std::string& key, double def = 0.0);
+const char* getStringProperty(const std::string& name, const std::string& key, const char* def = "");
+bool getBooleanProperty(const std::string& name, const std::string& key, bool def = false);
 /*
 从属性中获取值。如果属性不存在，或属性的类型不匹配，则返回默认值
 Get a value from the property. If the property doesn't exist, or the type is not matched, it will return the default value.
@@ -80,7 +80,7 @@ name:节的名称   key：属性的键   d/s/b：属性的默认值，可以忽�
 name: the name of section   key: the key of property    d/s/b: the default value of property, which can be ignored
 */
 
-void eraseProperty(std::string name ,std::string key);
+void eraseProperty(const std::string& name ,const std::string& key);
 /*
 删除一个属性。
 Delete a property.
@@ -95,7 +95,7 @@ void save();
 Save the file. This function will not run automatically, and it will destroy all comment in the file!
 */
 ```
-如果你希望阅读其它文件，我会在稍后为这些文件加上注释，以方便你的阅读。<br/>
-If you are going to read other files, I will attach the comment on them in order that you can read them more conviniently.<br/>
+如果你希望阅读其它文件，我已经在其中加上了中文版的注释，并会在稍后补充英文版，以方便您的阅读。<br/>
+If you are going to read other files, I will attach the English comment on them in order that you can read them more conviniently. Besides, Chinese comment has already been done.<br/>
 非常感谢您的阅读和使用！<br/>
 Thank you for your reading and using!

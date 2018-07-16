@@ -33,13 +33,27 @@ namespace leptIni
 		void save();
 
 	private:
+		/*
+			解析ini文件，在构造函数中自动调用
+		*/
 		void parse();
+		
+		/*
+			解析单个属性
+			name: 属性所在节的名称 line：属性所在行的内容
+		*/
 		void parseProperty(const char* name, const char* line);
+		
+		/*
+			判断是否为空白字符
+			c：将要判断字符
+			返回值：true->空白字符
+		*/
 		bool isWhiteSpace(char c);
 
 	private:
-		std::map<std::string, iniSection> _map;
-		std::fstream _stream;
-		std::string _name;
+		std::unordered_map<std::string, iniSection> _map;// 存储文件中的节
+		std::fstream _stream;//文件流
+		std::string _name;//文件名
 	};
 }
