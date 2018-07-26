@@ -98,4 +98,4 @@ Save the file. This function will not run automatically, and it will destroy all
 如果你希望阅读其它文件，我已经在其中加上了中文版的注释，并会在稍后补充英文版，以方便您的阅读。<br/>
 If you are going to read other files, I will attach the English comment on them in order that you can read them more conviniently. Besides, Chinese comment has already been done.<br/>
 非常感谢您的阅读和使用！<br/>
-Thank you for your reading and using!
+Thank you for your reading and using!<br/>
